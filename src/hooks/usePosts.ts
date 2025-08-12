@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { usePostStore } from '@/store/postStore';
-import { CreatePostData, UpdatePostData, PostFilters } from '@/types/post';
+import { CreatePostData, UpdatePostData, PostFilters, PostCategory, PostStatus } from '@/types/post';
 import { CreateCommentData } from '@/types/comment';
 
 export const usePosts = () => {
@@ -56,12 +56,12 @@ export const usePosts = () => {
 
   // Filter by category
   const filterByCategory = useCallback((category: string) => {
-    setFilters({ ...filters, category });
+    setFilters({ ...filters, category: category as PostCategory });
   }, [filters, setFilters]);
 
   // Filter by status
   const filterByStatus = useCallback((status: string) => {
-    setFilters({ ...filters, status });
+    setFilters({ ...filters, status: status as PostStatus });
   }, [filters, setFilters]);
 
   // Filter by location

@@ -215,9 +215,6 @@ export default function PostDetailPage() {
                     <p className="font-medium text-secondary-900">
                       {currentPost.author.username}
                     </p>
-                    <p className="text-sm text-secondary-600">
-                      Member since {formatRelativeTime(currentPost.author.createdAt || '')}
-                    </p>
                   </div>
                 </div>
               </CardContent>

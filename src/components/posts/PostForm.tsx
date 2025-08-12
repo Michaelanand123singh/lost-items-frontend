@@ -77,7 +77,8 @@ const PostForm: React.FC<PostFormProps> = ({ post, onSuccess, onCancel }) => {
       title: post.title,
       description: post.description,
       category: post.category,
-      status: post.status,
+      // Form schema only allows 'lost' | 'found'. Coerce any other post status to a safe default.
+      status: post.status === 'found' ? 'found' : 'lost',
       location: post.location,
       reward: post.reward,
       contactInfo: post.contactInfo,

@@ -84,6 +84,7 @@ export interface PostFilters {
   category?: PostCategory;
   status?: PostStatus;
   location?: string;
+  search?: string;
   dateRange?: {
     start: string;
     end: string;
