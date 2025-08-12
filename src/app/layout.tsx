@@ -12,8 +12,11 @@ export const metadata: Metadata = {
   description: 'A community-driven platform to help you find lost items and connect with people who can help.',
   keywords: 'lost items, found items, community, help, search, lost and found',
   authors: [{ name: 'Lost Items Platform Team' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+  metadataBase:
+    process.env.NODE_ENV === 'production'
+      ? new URL('https://lost-items-frontend.vercel.app')
+      : new URL('http://localhost:3000'),
   openGraph: {
     title: 'Lost Items Platform - Find Your Lost Items',
     description: 'A community-driven platform to help you find lost items and connect with people who can help.',
@@ -25,6 +28,11 @@ export const metadata: Metadata = {
     title: 'Lost Items Platform - Find Your Lost Items',
     description: 'A community-driven platform to help you find lost items and connect with people who can help.',
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

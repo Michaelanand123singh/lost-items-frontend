@@ -2,8 +2,16 @@ export const APP_CONFIG = {
   name: 'Lost Items Platform',
   description: 'Find your lost items with the help of the community',
   version: '1.0.0',
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api',
-  wsUrl: process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001',
+  apiUrl:
+    process.env.NEXT_PUBLIC_API_URL ||
+    (process.env.NODE_ENV === 'production'
+      ? 'https://lost-items-backend-1.onrender.com/api'
+      : 'http://localhost:3001/api'),
+  wsUrl:
+    process.env.NEXT_PUBLIC_WS_URL ||
+    (process.env.NODE_ENV === 'production'
+      ? 'https://lost-items-backend-1.onrender.com'
+      : 'http://localhost:3001'),
   maxFileSize: parseInt(process.env.NEXT_PUBLIC_MAX_FILE_SIZE || '5242880'),
 } as const;
 
