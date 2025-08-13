@@ -103,4 +103,28 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Subtle square grid background using border color */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: -1px -1px;
+  }
+
+  /* Soft radial mask to fade content edges */
+  .mask-radial-fade {
+    -webkit-mask-image: radial-gradient(60% 60% at 50% 0%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(60% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* Glass panel utility */
+  .glass-panel {
+    background-color: rgb(255 255 255 / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 0.4), 0 10px 30px -12px rgb(2 6 23 / 0.25);
+    border: 1px solid rgb(255 255 255 / 0.45);
+  }
 }
