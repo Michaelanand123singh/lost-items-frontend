@@ -172,9 +172,7 @@ const Footer: React.FC = () => {
             <p className="text-secondary-400 text-sm">
               © {currentYear} Lost Items Platform. All rights reserved.
             </p>
-            <p className="text-secondary-400 text-sm flex items-center">
-              Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> for the community
-            </p>
+         
           </div>
         </div>
       </div>
