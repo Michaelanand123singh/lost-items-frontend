@@ -84,27 +84,27 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-secondary-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-secondary-900 mb-2">
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold text-secondary-900 mb-1">
             Welcome back, {user?.username}!
           </h1>
-          <p className="text-secondary-600">
+          <p className="text-sm text-secondary-600">
             Here's what's happening with your lost items and community activity.
           </p>
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <Link href={ROUTES.createPost}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Plus className="h-6 w-6 text-primary-600" />
+                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Plus className="h-5 w-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900">Create New Post</h3>
-                    <p className="text-sm text-secondary-600">Report a lost or found item</p>
+                    <h3 className="text-sm font-medium text-secondary-900">Create New Post</h3>
+                    <p className="text-xs text-secondary-600">Report a lost or found item</p>
                   </div>
                 </div>
               </CardContent>
@@ -113,14 +113,14 @@ export default function DashboardPage() {
 
           <Link href={ROUTES.posts}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
-                    <Search className="h-6 w-6 text-secondary-600" />
+                  <div className="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center">
+                    <Search className="h-5 w-5 text-secondary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900">Browse Posts</h3>
-                    <p className="text-sm text-secondary-600">Search for lost items</p>
+                    <h3 className="text-sm font-medium text-secondary-900">Browse Posts</h3>
+                    <p className="text-xs text-secondary-600">Search for lost items</p>
                   </div>
                 </div>
               </CardContent>
@@ -129,14 +129,14 @@ export default function DashboardPage() {
 
           <Link href="/profile">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
-                    <Award className="h-6 w-6 text-success-600" />
+                  <div className="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center">
+                    <Award className="h-5 w-5 text-success-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900">View Profile</h3>
-                    <p className="text-sm text-secondary-600">Manage your account</p>
+                    <h3 className="text-sm font-medium text-secondary-900">View Profile</h3>
+                    <p className="text-xs text-secondary-600">Manage your account</p>
                   </div>
                 </div>
               </CardContent>
@@ -145,58 +145,58 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-secondary-600">Total Posts</p>
-                  <p className="text-2xl font-bold text-secondary-900">{stats.totalPosts}</p>
+                  <p className="text-xs font-medium text-secondary-600">Total Posts</p>
+                  <p className="text-xl font-semibold text-secondary-900">{stats.totalPosts}</p>
                 </div>
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <Plus className="h-6 w-6 text-primary-600" />
+                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <Plus className="h-5 w-5 text-primary-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-secondary-600">Active Posts</p>
-                  <p className="text-2xl font-bold text-secondary-900">{stats.activePosts}</p>
+                  <p className="text-xs font-medium text-secondary-600">Active Posts</p>
+                  <p className="text-xl font-semibold text-secondary-900">{stats.activePosts}</p>
                 </div>
-                <div className="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-warning-600" />
+                <div className="w-10 h-10 bg-warning-100 rounded-lg flex items-center justify-center">
+                  <Clock className="h-5 w-5 text-warning-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-secondary-600">Resolved</p>
-                  <p className="text-2xl font-bold text-secondary-900">{stats.resolvedPosts}</p>
+                  <p className="text-xs font-medium text-secondary-600">Resolved</p>
+                  <p className="text-xl font-semibold text-secondary-900">{stats.resolvedPosts}</p>
                 </div>
-                <div className="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
-                  <Award className="h-6 w-6 text-success-600" />
+                <div className="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center">
+                  <Award className="h-5 w-5 text-success-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-secondary-600">Reputation</p>
-                  <p className="text-2xl font-bold text-secondary-900">{stats.reputation}</p>
+                  <p className="text-xs font-medium text-secondary-600">Reputation</p>
+                  <p className="text-xl font-semibold text-secondary-900">{stats.reputation}</p>
                 </div>
-                <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="h-6 w-6 text-secondary-600" />
+                <div className="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center">
+                  <TrendingUp className="h-5 w-5 text-secondary-600" />
                 </div>
               </div>
             </CardContent>
@@ -204,19 +204,19 @@ export default function DashboardPage() {
         </div>
 
         {/* Recent Activity */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <Card>
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {recentActivity.map((activity) => (
-                  <div key={activity.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary-50">
-                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                      {activity.type === 'post' && <Plus className="h-4 w-4 text-primary-600" />}
-                      {activity.type === 'comment' && <MessageCircle className="h-4 w-4 text-primary-600" />}
-                      {activity.type === 'like' && <Heart className="h-4 w-4 text-primary-600" />}
+                  <div key={activity.id} className="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-secondary-50">
+                    <div className="w-7 h-7 bg-primary-100 rounded-full flex items-center justify-center">
+                      {activity.type === 'post' && <Plus className="h-3.5 w-3.5 text-primary-600" />}
+                      {activity.type === 'comment' && <MessageCircle className="h-3.5 w-3.5 text-primary-600" />}
+                      {activity.type === 'like' && <Heart className="h-3.5 w-3.5 text-primary-600" />}
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-secondary-900">{activity.title}</p>
@@ -240,22 +240,22 @@ export default function DashboardPage() {
               <CardTitle>Community Stats</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-secondary-600">Total Community Members</span>
-                  <span className="font-semibold">5,678+</span>
+                  <span className="font-medium">5,678+</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-secondary-600">Items Found This Month</span>
-                  <span className="font-semibold">234</span>
+                  <span className="font-medium">234</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-secondary-600">Success Rate</span>
-                  <span className="font-semibold text-success-600">89%</span>
+                  <span className="font-medium text-success-600">89%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-secondary-600">Active Posts</span>
-                  <span className="font-semibold">1,234</span>
+                  <span className="font-medium">1,234</span>
                 </div>
               </div>
             </CardContent>
@@ -264,10 +264,10 @@ export default function DashboardPage() {
 
         {/* Your Posts */}
         <div className="mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-secondary-900">Your Posts</h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-semibold text-secondary-900">Your Posts</h2>
             <Link href={ROUTES.createPost}>
-              <Button>
+              <Button size="md">
                 <Plus className="h-4 w-4 mr-2" />
                 Create New Post
               </Button>
@@ -277,7 +277,8 @@ export default function DashboardPage() {
           <PostList 
             showFilters={false}
             showSearch={false}
-            className="mb-8"
+            compact
+            className="mb-6"
           />
         </div>
       </div>

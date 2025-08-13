@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
 import { 
   Heart, 
   MessageCircle, 
@@ -14,6 +13,7 @@ import {
 import { Post } from '@/types/post';
 import { POST_CATEGORIES, POST_STATUSES } from '@/lib/constants';
 import { formatRelativeTime, truncateText, getCategoryColor, getStatusColor } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface PostCardProps {
   post: Post;
@@ -21,6 +21,7 @@ interface PostCardProps {
   onUnlike?: (postId: string) => void;
   isLiked?: boolean;
   className?: string;
+  compact?: boolean;
 }
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -29,6 +30,7 @@ const PostCard: React.FC<PostCardProps> = ({
   onUnlike,
   isLiked = false,
   className,
+  compact = false,
 }) => {
   const handleLikeClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -45,10 +47,10 @@ const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <Link href={`/posts/${post.id}`}>
-      <Card className={`hover:shadow-lg transition-all duration-200 cursor-pointer group ${className}`}>
+      <Card className={cn('hover:shadow-lg transition-all duration-200 cursor-pointer group', className)}>
         <CardContent className="p-0">
           {/* Image Section */}
-          <div className="relative h-48 bg-secondary-100 rounded-t-lg overflow-hidden">
+          <div className={cn('relative bg-secondary-100 rounded-t-lg overflow-hidden', compact ? 'h-36' : 'h-48')}>
             {post.images && post.images.length > 0 ? (
               <Image
                 src={post.images[0]}
@@ -88,20 +90,20 @@ const PostCard: React.FC<PostCardProps> = ({
           </div>
 
           {/* Content Section */}
-          <div className="p-4">
+          <div className={cn(compact ? 'p-3' : 'p-4')}>
             {/* Title */}
-            <h3 className="text-lg font-semibold text-secondary-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors">
+            <h3 className={cn('font-semibold text-secondary-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors', compact ? 'text-sm' : 'text-lg')}>
               {post.title}
             </h3>
 
             {/* Description */}
-            <p className="text-secondary-600 text-sm mb-3 line-clamp-2">
+            <p className={cn('text-secondary-600 mb-3 line-clamp-2', compact ? 'text-xs' : 'text-sm')}>
               {truncateText(post.description, 120)}
             </p>
 
             {/* Location */}
-            <div className="flex items-center text-secondary-500 text-sm mb-3">
-              <MapPin className="h-4 w-4 mr-1" />
+            <div className={cn('flex items-center text-secondary-500 mb-3', compact ? 'text-xs' : 'text-sm')}>
+              <MapPin className={cn('mr-1', compact ? 'h-3 w-3' : 'h-4 w-4')} />
               <span className="truncate">
                 {post.location.city}, {post.location.state}
               </span>
@@ -130,25 +132,25 @@ const PostCard: React.FC<PostCardProps> = ({
             <div className="flex items-center justify-between pt-3 border-t border-secondary-100">
               {/* Author Info */}
               <div className="flex items-center space-x-2">
-                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-medium">
+                <div className={cn('bg-primary-600 rounded-full flex items-center justify-center', compact ? 'w-5 h-5' : 'w-6 h-6')}>
+                  <span className={cn('text-white font-medium', compact ? 'text-[10px]' : 'text-xs')}>
                     {post.author.username.charAt(0).toUpperCase()}
                   </span>
                 </div>
-                <span className="text-sm text-secondary-600">
+                <span className={cn('text-secondary-600', compact ? 'text-xs' : 'text-sm')}>
                   {post.author.username}
                 </span>
               </div>
 
               {/* Stats */}
-              <div className="flex items-center space-x-4 text-secondary-500 text-sm">
+              <div className={cn('flex items-center text-secondary-500', compact ? 'space-x-3 text-xs' : 'space-x-4 text-sm')}>
                 <div className="flex items-center space-x-1">
-                  <Clock className="h-4 w-4" />
+                  <Clock className={cn(compact ? 'h-3 w-3' : 'h-4 w-4')} />
                   <span>{formatRelativeTime(post.createdAt)}</span>
                 </div>
                 
                 <div className="flex items-center space-x-1">
-                  <MessageCircle className="h-4 w-4" />
+                  <MessageCircle className={cn(compact ? 'h-3 w-3' : 'h-4 w-4')} />
                   <span>{post._count.comments}</span>
                 </div>
 
@@ -158,7 +160,7 @@ const PostCard: React.FC<PostCardProps> = ({
                     isLiked ? 'text-error-500' : 'hover:text-error-500'
                   }`}
                 >
-                  <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
+                  <Heart className={cn(isLiked ? 'fill-current' : '', compact ? 'h-3 w-3' : 'h-4 w-4')} />
                   <span>{post._count.likes}</span>
                 </button>
               </div>

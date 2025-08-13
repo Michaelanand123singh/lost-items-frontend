@@ -24,6 +24,7 @@ interface PostListProps {
   onPostLike?: (postId: string) => void;
   onPostUnlike?: (postId: string) => void;
   likedPosts?: string[];
+  compact?: boolean;
 }
 
 const PostList: React.FC<PostListProps> = ({
@@ -34,6 +35,7 @@ const PostList: React.FC<PostListProps> = ({
   onPostLike,
   onPostUnlike,
   likedPosts = [],
+  compact = false,
 }) => {
   const {
     posts,
@@ -246,8 +248,8 @@ const PostList: React.FC<PostListProps> = ({
           <div
             className={
               viewMode === 'grid'
-                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
-                : 'space-y-4'
+                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+                : 'space-y-3'
             }
           >
             {displayPosts.map((post) => (
@@ -258,6 +260,7 @@ const PostList: React.FC<PostListProps> = ({
                 onUnlike={onPostUnlike}
                 isLiked={likedPosts.includes(post.id)}
                 className={viewMode === 'list' ? 'flex' : ''}
+                compact={compact || viewMode === 'list'}
               />
             ))}
           </div>
@@ -269,7 +272,7 @@ const PostList: React.FC<PostListProps> = ({
                 onClick={loadMore}
                 loading={isLoading}
                 variant="outline"
-                size="lg"
+                size="md"
               >
                 Load More Posts
               </Button>
