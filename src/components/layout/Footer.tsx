@@ -16,47 +16,47 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-secondary-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">L</span>
+              <div className="w-7 h-7 bg-primary-600 rounded-md flex items-center justify-center">
+                <span className="text-white font-semibold text-sm">L</span>
               </div>
-              <span className="text-xl font-bold">Lost Items</span>
+              <span className="text-base font-semibold">Lost Items</span>
             </div>
-            <p className="text-secondary-300 text-sm">
+            <p className="text-secondary-300 text-sm leading-6">
               Helping people find their lost items through community support and collaboration.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <a
                 href="#"
                 className="text-secondary-400 hover:text-white transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-4 w-4" />
               </a>
               <a
                 href="#"
                 className="text-secondary-400 hover:text-white transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5" />
+                <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="#"
                 className="text-secondary-400 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-sm font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
 
           {/* Support */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Support</h3>
+            <h3 className="text-sm font-semibold">Support</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
@@ -142,22 +142,22 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact</h3>
+            <h3 className="text-sm font-semibold">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-secondary-400" />
+                <Mail className="h-3.5 w-3.5 text-secondary-400" />
                 <span className="text-secondary-300 text-sm">
                   support@lostitems.com
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-secondary-400" />
+                <Phone className="h-3.5 w-3.5 text-secondary-400" />
                 <span className="text-secondary-300 text-sm">
                   +1 (555) 123-4567
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-secondary-400" />
+                <MapPin className="h-3.5 w-3.5 text-secondary-400" />
                 <span className="text-secondary-300 text-sm">
                   123 Main St, City, State 12345
                 </span>
@@ -167,12 +167,14 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-secondary-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-secondary-800 mt-6 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
             <p className="text-secondary-400 text-sm">
               © {currentYear} Lost Items Platform. All rights reserved.
             </p>
-         
+            <p className="text-secondary-400 text-sm flex items-center">
+              Made with <Heart className="h-3.5 w-3.5 mx-1 text-red-500" /> for the community
+            </p>
           </div>
         </div>
       </div>

@@ -37,47 +37,47 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white border-b border-secondary-200 sticky top-0 z-40">
+    <header className="bg-white/90 backdrop-blur border-b border-secondary-200 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14">
           {/* Logo */}
           <div className="flex items-center">
             <Link href={ROUTES.home} className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">L</span>
+              <div className="w-7 h-7 bg-primary-600 rounded-md flex items-center justify-center">
+                <span className="text-white font-semibold text-sm">L</span>
               </div>
-              <span className="text-xl font-bold text-secondary-900">
+              <span className="text-base font-semibold text-secondary-900">
                 Lost Items
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link 
               href={ROUTES.posts}
-              className="text-secondary-600 hover:text-secondary-900 transition-colors"
+              className="text-secondary-600 hover:text-secondary-900 transition-colors text-sm"
             >
               Browse Posts
             </Link>
             {isAuthenticated && (
               <Link 
                 href={ROUTES.createPost}
-                className="text-secondary-600 hover:text-secondary-900 transition-colors"
+                className="text-secondary-600 hover:text-secondary-900 transition-colors text-sm"
               >
                 Create Post
               </Link>
             )}
             <Link 
               href={ROUTES.dashboard}
-              className="text-secondary-600 hover:text-secondary-900 transition-colors"
+              className="text-secondary-600 hover:text-secondary-900 transition-colors text-sm"
             >
               Dashboard
             </Link>
           </nav>
 
           {/* Search Bar */}
-          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
+          <div className="hidden lg:flex items-center flex-1 max-w-sm mx-6">
             <SearchBar 
               placeholder="Search lost items..."
               variant="filled"
@@ -91,13 +91,13 @@ const Header: React.FC = () => {
             {isAuthenticated ? (
               <>
                 {/* Notifications */}
-                <button className="p-2 text-secondary-600 hover:text-secondary-900 transition-colors">
-                  <Bell className="h-5 w-5" />
+                <button className="p-1.5 text-secondary-600 hover:text-secondary-900 transition-colors">
+                  <Bell className="h-4 w-4" />
                 </button>
 
                 {/* Create Post Button */}
                 <Link href={ROUTES.createPost}>
-                  <Button size="sm" leftIcon={<Plus className="h-4 w-4" />}>
+                  <Button size="sm" leftIcon={<Plus className="h-3.5 w-3.5" />}>
                     Create Post
                   </Button>
                 </Link>
@@ -106,43 +106,43 @@ const Header: React.FC = () => {
                 <div className="relative">
                   <button
                     onClick={toggleUserMenu}
-                    className="flex items-center space-x-2 p-2 rounded-md hover:bg-secondary-100 transition-colors"
+                    className="flex items-center space-x-2 p-1.5 rounded-md hover:bg-secondary-100 transition-colors"
                   >
-                    <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-medium">
+                    <div className="w-7 h-7 bg-primary-600 rounded-full flex items-center justify-center">
+                      <span className="text-white text-[11px] font-medium">
                         {user?.username?.charAt(0).toUpperCase()}
                       </span>
                     </div>
-                    <span className="hidden sm:block text-sm font-medium text-secondary-900">
+                    <span className="hidden sm:block text-xs font-medium text-secondary-900">
                       {user?.username}
                     </span>
                   </button>
 
                   {/* Dropdown Menu */}
                   {isUserMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-secondary-200 py-1 z-50">
+                    <div className="absolute right-0 mt-2 w-44 bg-white rounded-md shadow-lg border border-secondary-200 py-1 z-50">
                       <Link
                         href={`/profile/${user?.id}`}
-                        className="flex items-center px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
+                        className="flex items-center px-3 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <User className="h-4 w-4 mr-3" />
+                        <User className="h-4 w-4 mr-2.5" />
                         Profile
                       </Link>
                       <Link
                         href={ROUTES.dashboard}
-                        className="flex items-center px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
+                        className="flex items-center px-3 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <Settings className="h-4 w-4 mr-3" />
+                        <Settings className="h-4 w-4 mr-2.5" />
                         Dashboard
                       </Link>
                       <hr className="my-1" />
                       <button
                         onClick={handleLogout}
-                        className="flex items-center w-full px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
+                        className="flex items-center w-full px-3 py-2 text-sm text-secondary-700 hover:bg-secondary-100"
                       >
-                        <LogOut className="h-4 w-4 mr-3" />
+                        <LogOut className="h-4 w-4 mr-2.5" />
                         Logout
                       </button>
                     </div>
@@ -170,9 +170,9 @@ const Header: React.FC = () => {
               className="md:hidden p-2 text-secondary-600 hover:text-secondary-900 transition-colors"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
@@ -192,10 +192,10 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-secondary-200 bg-white">
-          <div className="px-4 py-2 space-y-1">
+          <div className="px-4 py-2 space-y-1.5">
             <Link
               href={ROUTES.posts}
-              className="block px-3 py-2 text-base font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
+              className="block px-3 py-2 text-sm font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Browse Posts
@@ -203,7 +203,7 @@ const Header: React.FC = () => {
             {isAuthenticated && (
               <Link
                 href={ROUTES.createPost}
-                className="block px-3 py-2 text-base font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
+                className="block px-3 py-2 text-sm font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Create Post
@@ -211,7 +211,7 @@ const Header: React.FC = () => {
             )}
             <Link
               href={ROUTES.dashboard}
-              className="block px-3 py-2 text-base font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
+              className="block px-3 py-2 text-sm font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Dashboard
@@ -221,14 +221,14 @@ const Header: React.FC = () => {
                 <hr className="my-2" />
                 <Link
                   href={`/profile/${user?.id}`}
-                  className="block px-3 py-2 text-base font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
+                  className="block px-3 py-2 text-sm font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Profile
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2 text-base font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
+                  className="block w-full text-left px-3 py-2 text-sm font-medium text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-md"
                 >
                   Logout
                 </button>
