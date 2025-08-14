@@ -23,8 +23,11 @@ export default function HomePage() {
             'https://images.unsplash.com/photo-1520974722031-0f2430a4b1c8?q=80&w=1920&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1512646605205-78422b5cb1dc?q=80&w=1920&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1920&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1920&auto=format&fit=crop',
           ]}
-          intervalMs={7000}
+          mode="marquee"
+          speed={50}
         />
         <div className="absolute inset-0 bg-grid mask-radial-fade pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

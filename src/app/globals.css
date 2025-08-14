@@ -104,6 +104,17 @@
     text-wrap: balance;
   }
   
+  @keyframes scrollX {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-scroll-x {
+    animation-name: scrollX;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
   /* Subtle square grid background using border color */
   .bg-grid {
     background-image:
