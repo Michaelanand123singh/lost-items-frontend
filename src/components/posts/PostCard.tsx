@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { Post } from '@/types/post';
 import { POST_CATEGORIES, POST_STATUSES } from '@/lib/constants';
-import { formatRelativeTime, truncateText, getCategoryColor, getStatusColor } from '@/lib/utils';
+import { formatRelativeTime, truncateText, getCategoryColor, getStatusColor, resolveImageUrl } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 
 interface PostCardProps {
@@ -53,7 +53,7 @@ const PostCard: React.FC<PostCardProps> = ({
           <div className={cn('relative bg-secondary-100 rounded-t-lg overflow-hidden', compact ? 'h-36' : 'h-48')}>
             {post.images && post.images.length > 0 ? (
               <Image
-                src={post.images[0]}
+                src={resolveImageUrl(post.images[0])}
                 alt={post.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-200"

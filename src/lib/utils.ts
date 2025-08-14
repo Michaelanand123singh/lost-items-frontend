@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
+import { APP_CONFIG } from './constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -145,4 +146,20 @@ export function getStatusColor(status: string): string {
   };
   
   return colors[status] || colors.lost;
+}
+
+/**
+ * Resolves a potentially relative image path (e.g. "/uploads/abc.jpg" or "uploads/abc.jpg")
+ * to an absolute URL on the API host. Leaves full URLs (http/https) unchanged.
+ */
+export function resolveImageUrl(pathOrUrl: string | undefined | null): string {
+  if (!pathOrUrl) return '';
+  const url = String(pathOrUrl);
+  if (/^https?:\/\//i.test(url)) return url;
+
+  const baseHost = (APP_CONFIG.wsUrl || APP_CONFIG.apiUrl.replace(/\/api$/, ''))
+    .replace(/\/$/, '');
+  const normalizedPath = url.startsWith('/') ? url : `/${url}`;
+  // Ensure it targets uploads or any given path on the backend host
+  return `${baseHost}${normalizedPath}`;
 }

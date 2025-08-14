@@ -19,7 +19,7 @@ import {
   Mail
 } from 'lucide-react';
 import { POST_CATEGORIES, POST_STATUSES } from '@/lib/constants';
-import { formatRelativeTime, getCategoryColor, getStatusColor } from '@/lib/utils';
+import { formatRelativeTime, getCategoryColor, getStatusColor, resolveImageUrl } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants';
@@ -134,9 +134,10 @@ export default function PostDetailPage() {
                     {currentPost.images.map((image, index) => (
                       <div key={index} className="relative aspect-video bg-secondary-100 rounded-lg overflow-hidden">
                         <img
-                          src={image}
+                          src={resolveImageUrl(image)}
                           alt={`${currentPost.title} - Image ${index + 1}`}
                           className="w-full h-full object-cover"
+                          loading={index > 0 ? 'lazy' : 'eager'}
                         />
                       </div>
                     ))}
