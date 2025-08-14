@@ -155,9 +155,28 @@ export const usePostStore = create<PostState>()(
             preferredContact: data.contactInfo.preferredContact,
             reward: data.reward,
             tags: data.tags,
+            images: [],
           };
 
-          const response = await apiClient.createPost(payload);
+          // If files were selected in the form, upload them first and collect URLs
+          try {
+            const files = (data as any).images as File[] | undefined;
+            if (Array.isArray(files) && files.length > 0) {
+              const uploadedUrls: string[] = [];
+              for (const file of files) {
+                const uploadRes = await apiClient.uploadFile(file);
+                if ((uploadRes as any).success && (uploadRes as any).data?.url) {
+                  uploadedUrls.push((uploadRes as any).data.url);
+                }
+              }
+              (payload as any).images = uploadedUrls;
+            }
+          } catch (e) {
+            // Non-fatal: allow creating post without images if upload fails
+            console.error('Image upload failed:', e);
+          }
+
+          const response = await apiClient.createPost(payload as any);
           
           if (response.success && response.data) {
             const newPost = response.data;
